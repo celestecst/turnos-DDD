@@ -22,6 +22,17 @@ export class Turno {
     return new Turno(id, clienteId, profesionalId, fechaHora, 'PENDIENTE');
   }
 
+  //Mapea desde la bd , se saltea las validaciones y asume que si el dato ya estaba en la bd, es un dato válido.
+  static reconstruir(
+    id: string,
+    clienteId: string,
+    profesionalId: string,
+    fechaHora: Date,
+    estado: 'PENDIENTE' | 'CONFIRMADO' | 'CANCELADO',
+  ): Turno {
+    return new Turno(id, clienteId, profesionalId, fechaHora, estado);
+  }
+
   // Regla de negocio para cancelar
   cancelar(): void {
     if (this.estado === 'CANCELADO') {
