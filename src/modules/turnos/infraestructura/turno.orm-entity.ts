@@ -11,7 +11,7 @@ export class TurnoOrmEntity {
   @Column()
   profesionalId!: string;
 
-  @Column('datatime ')
+  @Column({ type: 'datetime' })
   fechaHora!: Date;
 
   @Column()
