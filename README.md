@@ -24,8 +24,9 @@ Un sistema integral para la gestión de citas y turnos, construido con buenas pr
 - [x] **Backend:** Configuración del servidor con NestJS.
 - [x] **Backend:** Modelado de Base de Datos MySQL con TypeORM y Docker.
 - [x] **Backend:** CRUD funcional con Arquitectura Limpia (Dominio, Casos de Uso, Controladores).
-- [ ] **Frontend:** Inicialización del proyecto web.
-- [ ] **Frontend:** Consumo de la API REST y diseño de pantallas.
+- [x] **Frontend:** Inicialización del proyecto web.
+- [x] **Frontend:** Consumo de la API REST y diseño de pantallas.
+- [ ] **Backend:** Refinamiento, mejoras y expansión. 
 
 ---
 
@@ -90,11 +91,3 @@ El sistema cuenta con un flujo CRUD funcional para la gestión de turnos:
 
 Este proyecto aplica **Clean Architecture**. La lógica central de la aplicación está encapsulada en la capa de Dominio, aislada de los frameworks externos. 
 
-```mermaid
-graph TD
-    Client[Frontend / Postman] -->|HTTP REST| API(Controlador NestJS)
-    API --> UC{Casos de Uso}
-    UC --> Domain[Entidad Turno - Reglas de Negocio]
-    UC --> Repo[Repositorio TypeORM]
-    Repo --> DB[(MySQL en Docker)]
-```
