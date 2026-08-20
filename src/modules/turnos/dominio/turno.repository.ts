@@ -5,6 +5,7 @@ import { Turno } from './turno.entity';
 export interface TurnoRepository {
   guardar(turno: Turno): Promise<void>;
   buscarPorId(id: string): Promise<Turno | null>;
+  buscarTodos(): Promise<Turno[]>;
 }
 
 // Este símbolo (Symbol) lo usaremos en NestJS para inyectar este contrato más adelante.

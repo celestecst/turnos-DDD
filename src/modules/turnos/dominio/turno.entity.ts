@@ -33,11 +33,14 @@ export class Turno {
     return new Turno(id, clienteId, profesionalId, fechaHora, estado);
   }
 
-  // Regla de negocio para cancelar
-  cancelar(): void {
+  confirmar(): void {
     if (this.estado === 'CANCELADO') {
-      throw new Error('El turno ya está cancelado.');
+      throw new Error('No se puede confirmar un turno que ya fue cancelado');
     }
+    this.estado = 'CONFIRMADO';
+  }
+
+  cancelar(): void {
     this.estado = 'CANCELADO';
   }
 

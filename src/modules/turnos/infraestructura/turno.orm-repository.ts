@@ -36,4 +36,17 @@ export class TurnoOrmRepository implements TurnoRepository {
       ormEntity.estado as 'PENDIENTE' | 'CONFIRMADO' | 'CANCELADO',
     );
   }
+
+  async buscarTodos(): Promise<Turno[]> {
+    const ormEntities = await this.ormRepository.find();
+    return ormEntities.map((ormEntity) =>
+      Turno.reconstruir(
+        ormEntity.id,
+        ormEntity.clienteId,
+        ormEntity.profesionalId,
+        ormEntity.fechaHora,
+        ormEntity.estado as 'PENDIENTE' | 'CONFIRMADO' | 'CANCELADO',
+      ),
+    );
+  }
 }
