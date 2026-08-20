@@ -3,6 +3,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { TurnosModule } from './modules/turnos/turnos.module';
 import { TurnoOrmEntity } from './modules/turnos/infraestructura/turno.orm-entity';
+import { UsuarioOrmEntity } from './modules/usuarios/infraestructura/usuario.orm-entity';
+import { UsuariosModule } from './modules/usuarios/usuarios.module';
 
 @Module({
   imports: [
@@ -10,7 +12,7 @@ import { TurnoOrmEntity } from './modules/turnos/infraestructura/turno.orm-entit
       isGlobal: true, //variables en cualquier parte del proyecto
     }),
     TypeOrmModule.forRootAsync({
-      imports: [ConfigModule],
+      imports: [ConfigModule, UsuariosModule],
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
         type: 'mysql',
@@ -19,7 +21,7 @@ import { TurnoOrmEntity } from './modules/turnos/infraestructura/turno.orm-entit
         username: configService.get<string>('MYSQL_USER'),
         password: configService.get<string>('MYSQL_PASSWORD'),
         database: configService.get<string>('MYSQL_DB'),
-        entities: [TurnoOrmEntity],
+        entities: [TurnoOrmEntity, UsuarioOrmEntity],
         synchronize: true,
       }),
     }),

@@ -1,0 +1,176 @@
+/* Paleta de colores principal */
+:root {
+  --bg-main: #212933;
+  --bg-card: #2A3543;
+  --text-main: #FFFFFF;
+  --text-muted: #A0AAB5;
+  --border-color: #3A4B5C;
+  --color-success: #367129;
+  --color-danger: #C0392B; 
+  --color-pending: #848484; 
+}
+
+/* Reseteo y fondo base */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.container {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 50px 20px;
+}
+
+.main-title {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  font-weight: 500;
+}
+
+/* Tarjetas (Cards) */
+.card {
+  background-color: var(--bg-card);
+  border-radius: 8px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+  margin-top: 0;
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-bottom: 25px;
+}
+
+/* Formulario */
+.turno-form {
+  display: flex;
+  gap: 20px;
+  align-items: flex-end;
+}
+
+.input-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.date-input {
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  padding: 12px 15px;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+}
+
+/* Vuelve blanco el ícono del calendario nativo */
+.date-input::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+}
+
+.btn-submit {
+  background-color: var(--color-success);
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  height: 44px; /* Para que alinee perfecto con el input */
+}
+
+.btn-submit:hover {
+  background-color: #2b5e1f;
+}
+
+/* Lista de turnos */
+.turno-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.turno-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.turno-item:last-child {
+  border-bottom: none;
+}
+
+.turno-fecha {
+  font-size: 1.05rem;
+  color: #e0e0e0;
+}
+
+/* Etiquetas (Badges) de estado */
+.badge {
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.badge-pendiente {
+  background-color: var(--color-pending);
+}
+
+.badge-confirmado {
+  background-color: var(--color-success);
+}
+
+.badge-cancelado {
+  background-color: var(--color-danger);
+}
+
+/* --- Nuevos estilos para los botones de acción --- */
+.turno-acciones {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Separación entre la píldora y los botones */
+}
+
+.botones-accion {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-icon {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 4px 8px;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+  /* Para que el emoji no se vea tan pequeño */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-icon:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
